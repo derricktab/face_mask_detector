@@ -1,0 +1,2 @@
+0 NO_MASK
+1 MASK_ON
