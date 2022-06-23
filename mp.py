@@ -3,6 +3,8 @@ import cv2
 import mediapipe as mp
 # from mediapipe.python.solutions.drawing_utils import *
 import tensorflow as tf
+from fastapi import FastAPI, File, UploadFile
+from PIL import Image, ImageOps
 
 
 mp_face_detection = mp.solutions.face_detection
@@ -11,6 +13,12 @@ model = tf.keras.models.load_model('mask_mobile_net.h5')
 # print(model.summary())
 FONT = cv2.FONT_HERSHEY_SIMPLEX
 
+
+# creating an instance of FastAPI
+app = FastAPI()
+#
+# @app.get("/image")
+# def image():
 
 # For static images:
 IMAGE_FILES = []
@@ -38,7 +46,12 @@ with mp_face_detection.FaceDetection(
       mp_drawing.draw_detection(annotated_image, detection)
     cv2.imwrite('/tmp/annotated_image' + str(idx) + '.png', annotated_image)
 
-# For webcam input:
+
+@app.post("/video")
+def video():
+    # For webcam input:
+    return
+
 cap = cv2.VideoCapture(0)
 with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5) as face_detection:
   while cap.isOpened():
