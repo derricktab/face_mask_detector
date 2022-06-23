@@ -1,0 +1,10 @@
+Pillow~=9.1.0
+mediapipe~=0.8.10
+tensorflow~=2.8.0
+fastapi~=0.75.2
+numpy~=1.22.3
+keras~=2.8.0
+gunicorn==20.1.0
+uvicorn==0.17.6
+protobuf==3.20.0
+python-multipart
