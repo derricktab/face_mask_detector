@@ -18,9 +18,13 @@ FONT = cv2.FONT_HERSHEY_SIMPLEX
 app = FastAPI()
 
 
+@app.get("/")
+def home():
+    return "FACE MASK DETECTOR HOME PAGE"
+
+
 @app.post("/image/")
 def predimage(received_image: UploadFile):
-
     # Saving the received image to disk
     destination = "temp.jpg"
     try:
@@ -86,8 +90,6 @@ def predimage(received_image: UploadFile):
             annotated_image = image.copy()
             cv2.imwrite('output/outputimage.png', annotated_image)
         return FileResponse("output/outputimage.png", headers={'predicted_class': label})
-
-
 
         # # Convert the BGR image to RGB and process it with MediaPipe Face Detection.
         # results = face_detection.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
