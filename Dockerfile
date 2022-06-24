@@ -12,7 +12,7 @@ COPY . ./
 # Step 3. Install production dependencies.
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 8080
 # Step 4: Run the web service on container startup using gunicorn webserver.
 CMD exec gunicorn --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app
 
