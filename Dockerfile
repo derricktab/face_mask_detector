@@ -11,6 +11,8 @@ COPY . ./
 
 # Step 3. Install production dependencies.
 RUN pip install -r requirements.txt
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 
 EXPOSE 8080
 # Step 4: Run the web service on container startup using gunicorn webserver.
