@@ -89,7 +89,9 @@ def predimage(received_image: UploadFile):
 
             annotated_image = image.copy()
             cv2.imwrite('output/outputimage.png', annotated_image)
-        return FileResponse("output/outputimage.png", headers={'predicted_class': label})
+            return FileResponse("output/outputimage.png")
+        else:
+            return "NO FACE DETECTED IN IMAGE"
 
         # # Convert the BGR image to RGB and process it with MediaPipe Face Detection.
         # results = face_detection.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
