@@ -91,7 +91,7 @@ def predimage(received_image: UploadFile):
             cv2.imwrite('output/outputimage.png', annotated_image)
 
             accuracy = pred[0][pred_res]
-            headers = {"prediction": label, "accurancy": str(accuracy)}
+            headers = {"prediction": label, "accuracy": str(accuracy)}
 
             return FileResponse("output/outputimage.png", headers=headers)
         else:
