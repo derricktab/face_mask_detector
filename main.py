@@ -53,11 +53,11 @@ def predimage(received_image: UploadFile):
 
             # getting image height
             iheight = image.shape[0]
-            print("IMAGE HEIGHT: " + str(iheight))
+            # print("IMAGE HEIGHT: " + str(iheight))
 
             # Gettign image width
             iwidth = image.shape[1]
-            print("IMAGE WIDTH: " + str(iwidth))
+            # print("IMAGE WIDTH: " + str(iwidth))
 
             if results.detections:
 
