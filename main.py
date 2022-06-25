@@ -89,7 +89,7 @@ def predimage(received_image: UploadFile):
 
             annotated_image = image.copy()
             cv2.imwrite('output/outputimage.png', annotated_image)
-            return FileResponse("output/outputimage.png")
+            return FileResponse("output/outputimage.png", headers={"predicted_class": label, "accurancy": pred})
         else:
             return "NO FACE DETECTED IN IMAGE"
 
